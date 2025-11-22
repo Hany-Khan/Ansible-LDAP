@@ -1,4 +1,4 @@
-<img width="680" height="1280" alt="image" src="https://github.com/user-attachments/assets/2d6a97e5-212a-4130-aaa7-beba909f8440" /># End-to-End OpenLDAP Automation (Ansible + Bash Menu Interface)
+# End-to-End OpenLDAP Automation (Ansible + Bash Menu Interface)
 This project provides a fully automated deployment workflow for an OpenLDAP server and client environment using Ansible. It includes installation, configuration of slapd.conf and database files, LDIF population, firewall/NSS setup, and a Bash-driven interactive automation menu.
 
 Features include:
@@ -54,5 +54,47 @@ For this project, you will need:
 
 ---
 
-For this project, you will need this required tree structure:
-<img width="680" height="1280" alt="image" src="https://github.com/user-attachments/assets/1acd4bb3-1d77-4f63-b038-db73d0443ffe" />
+/root/ldap-lab/
+│
+├── inventory.ini
+├── menu.sh
+│
+├── playbooks
+│   ├── config.yml
+│   ├── firewall.yml
+│   ├── install_ldap_clt.yml
+│   ├── install_ldap_srv.yml
+│   └── ldap_server.yml
+│
+└── roles
+    ├── config
+    │   ├── files
+    │   │   ├── ldap.conf
+    │   │   └── slapd.conf
+    │   └── tasks
+    │       └── config.yml
+    │
+    ├── firewall
+    │   ├── files
+    │   │   └── nslcd.conf
+    │   └── tasks
+    │       └── main.yml
+    │
+    ├── firewall_nss
+    │   └── tasks
+    │       └── main.yml
+    │
+    ├── ldap_install
+    │   └── tasks
+    │       └── main.yml
+    │
+    ├── ldap_install_clt
+    │   └── tasks
+    │       └── main.yml
+    │
+    └── ldap_server
+        ├── files
+        │   ├── base.conf
+
+
+---
